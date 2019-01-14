@@ -1,0 +1,7 @@
+13:02:52.976 [main] INFO  com.utils.GetBrowser - driver is initialized
+13:02:55.998 [main] INFO  com.utils.GetBrowser - url open
+13:02:58.943 [main] INFO  com.utils.GetBrowser - login operation successfully performed
+13:48:17.578 [main] INFO  com.utils.GetBrowser - driver is initialized
+13:48:21.314 [main] INFO  com.utils.GetBrowser - url open
+13:48:25.344 [main] INFO  com.utils.GetBrowser - login operation successfully performed
+14:18:37.514 [main] INFO  com.utils.GetBrowser - driver is initialized
