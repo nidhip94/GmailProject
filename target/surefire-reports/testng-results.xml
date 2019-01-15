@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
+<testng-results skipped="0" failed="1" ignored="0" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="22263" started-at="2019-01-14T08:55:23Z" finished-at="2019-01-14T08:55:45Z">
+  <suite name="Suite" duration-ms="50887" started-at="2019-01-15T16:23:49Z" finished-at="2019-01-15T16:24:40Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="22263" started-at="2019-01-14T08:55:23Z" finished-at="2019-01-14T08:55:45Z">
-      <class name="com.testcases.LoginTestCase">
-        <test-method status="PASS" signature="openBrowser()[pri:0, instance:com.testcases.LoginTestCase@44ebcd03]" name="openBrowser" is-config="true" duration-ms="6758" started-at="2019-01-14T08:55:23Z" finished-at="2019-01-14T08:55:30Z">
+    <test name="Test" duration-ms="20859" started-at="2019-01-15T16:23:49Z" finished-at="2019-01-15T16:24:10Z">
+      <class name="com.testcases.TC_01_LoginTestCase">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:com.testcases.TC_01_LoginTestCase@694abbdc]" name="openBrowser" is-config="true" duration-ms="6453" started-at="2019-01-15T16:23:49Z" finished-at="2019-01-15T16:23:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method status="FAIL" signature="loginToGmail()[pri:0, instance:com.testcases.LoginTestCase@44ebcd03]" name="loginToGmail" duration-ms="12274" started-at="2019-01-14T08:55:30Z" finished-at="2019-01-14T08:55:42Z">
+        <test-method status="FAIL" signature="loginToGmail()[pri:0, instance:com.testcases.TC_01_LoginTestCase@694abbdc]" name="loginToGmail" duration-ms="12963" started-at="2019-01-15T16:23:55Z" finished-at="2019-01-15T16:24:08Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [true] but found [false]]]>
@@ -24,7 +24,7 @@ at org.testng.Assert.assertEqualsImpl(Assert.java:137)
 at org.testng.Assert.assertEquals(Assert.java:118)
 at org.testng.Assert.assertEquals(Assert.java:568)
 at org.testng.Assert.assertEquals(Assert.java:578)
-at com.testcases.LoginTestCase.loginToGmail(LoginTestCase.java:55)
+at com.testcases.TC_01_LoginTestCase.loginToGmail(TC_01_LoginTestCase.java:52)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -60,11 +60,27 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginToGmail -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.testcases.LoginTestCase@44ebcd03]" name="closeBrowser" is-config="true" duration-ms="2542" started-at="2019-01-14T08:55:43Z" finished-at="2019-01-14T08:55:45Z">
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.testcases.TC_01_LoginTestCase@694abbdc]" name="closeBrowser" is-config="true" duration-ms="688" started-at="2019-01-15T16:24:09Z" finished-at="2019-01-15T16:24:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-      </class> <!-- com.testcases.LoginTestCase -->
+      </class> <!-- com.testcases.TC_01_LoginTestCase -->
     </test> <!-- Test -->
+    <test name="Test1" duration-ms="29962" started-at="2019-01-15T16:24:10Z" finished-at="2019-01-15T16:24:40Z">
+      <class name="com.testcases.TC_02_ChangeDpTestCase">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:com.testcases.TC_02_ChangeDpTestCase@6ae5aa72]" name="openBrowser" is-config="true" duration-ms="4195" started-at="2019-01-15T16:24:10Z" finished-at="2019-01-15T16:24:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="changeDpGmail()[pri:0, instance:com.testcases.TC_02_ChangeDpTestCase@6ae5aa72]" name="changeDpGmail" duration-ms="23553" started-at="2019-01-15T16:24:14Z" finished-at="2019-01-15T16:24:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changeDpGmail -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.testcases.TC_02_ChangeDpTestCase@6ae5aa72]" name="closeBrowser" is-config="true" duration-ms="2211" started-at="2019-01-15T16:24:38Z" finished-at="2019-01-15T16:24:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.testcases.TC_02_ChangeDpTestCase -->
+    </test> <!-- Test1 -->
   </suite> <!-- Suite -->
 </testng-results>

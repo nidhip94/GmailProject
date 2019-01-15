@@ -21,27 +21,27 @@ public class LoginObject {
 	//assertion -> check whether google account button is displayed or not
 	public By Account = By.xpath("//a[contains(@aria-label,'Google Account')]");
 
-	// Functions
+	     // Functions==>
 
-	     // login to application
+	     // =======>login to application======>
 	public void getUrl(WebDriver driver) {
 		key.getUrl(driver, Constants.url);
 	}
 
-	     // login function
+	     // ========>login function=========>
 	public void performLogin(WebDriver driver) throws InterruptedException {
 
-		// enter username
+		// ====>enter username
 		key.findElementsendtext(driver, username, Constants.username);
 
-		// click on next
+		//=====> click on next
 		key.findElementClick(driver, usernameNext);
 		
 		
-		//enter password
+		//===>enter password
 		key.findElementsendtextStale(driver, password, Constants.password);
 		
-		//click on password next
+		//=====>click on password next
 		key.findElementClick(driver, passwordNext);
 		
 	}

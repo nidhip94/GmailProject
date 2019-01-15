@@ -3,16 +3,17 @@
 <suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite]">
   <listeners>
     <listener class-name="com.utils.Listeners"/>
+    <listener class-name="com.utils.ExtentReporterNG"/>
   </listeners>
   <test thread-count="5" verbose="0" name="Test(failed)">
     <classes>
-      <class name="com.testcases.LoginTestCase">
+      <class name="com.testcases.TC_01_LoginTestCase">
         <methods>
-          <include name="loginToGmail"/>
-          <include name="closeBrowser"/>
           <include name="openBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="loginToGmail"/>
         </methods>
-      </class> <!-- com.testcases.LoginTestCase -->
+      </class> <!-- com.testcases.TC_01_LoginTestCase -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

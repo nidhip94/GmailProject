@@ -1,0 +1,7 @@
+21:54:40.254 [main] INFO  com.utils.GetBrowser - driver is closed for change dp class
+22:07:30.076 [main] INFO  com.utils.GetBrowser - driver is initialized
+22:07:33.547 [main] INFO  com.utils.GetBrowser - url open
+22:07:33.554 [main] INFO  com.utils.GetBrowser - login operation successfully performed
+22:10:58.061 [main] INFO  com.utils.GetBrowser - driver is initialized
+22:11:00.685 [main] INFO  com.utils.GetBrowser - url open
+22:11:12.746 [main] INFO  com.utils.GetBrowser - login operation successfully performed

@@ -1,4 +1,0 @@
-12:28:45.247 [main] INFO  com.utils.GetBrowser - driver is initialized
-12:28:47.847 [main] INFO  com.utils.GetBrowser - url open
-12:28:51.140 [main] INFO  com.utils.GetBrowser - login operation successfully performed
-12:28:58.346 [main] INFO  com.utils.GetBrowser - Assert successsfully

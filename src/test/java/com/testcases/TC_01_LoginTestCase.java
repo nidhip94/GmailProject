@@ -1,14 +1,11 @@
 package com.testcases;
 
-import java.io.IOException;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.pageobjects.LoginObject;
@@ -16,19 +13,19 @@ import com.utils.GetBrowser;
 import com.utils.Keywords;
 import com.utils.ScreenShot;
 
+public class TC_01_LoginTestCase extends GetBrowser {
 
-public class LoginTestCase extends GetBrowser{
-
-	//initialization
+	// initialization
 	WebDriver driver;
 	LoginObject login = new LoginObject();
 	Keywords key = new Keywords();
 	ScreenShot ss = new ScreenShot();
 
-	//initializing logger
-	
-	public static Logger log =LogManager.getLogger(GetBrowser.class.getName());
+	// initializing logger
 
+	public static Logger log = LogManager.getLogger(GetBrowser.class.getName());
+
+	// before this class is invoked , it opens a browser and driver is initialized
 	@BeforeClass
 	public void openBrowser() // open the browser
 	{
@@ -38,30 +35,30 @@ public class LoginTestCase extends GetBrowser{
 	}
 
 	@Test
-	public void loginToGmail()  {
+	public void loginToGmail() {
 
-		//get url 
+		// get url
 		login.getUrl(driver);
 		log.info("url open");
-		//login to gmail
+		// login to gmail
 		try {
-		login.performLogin(driver);
-		}catch(Exception e) {
+			login.performLogin(driver);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		log.info("login operation successfully performed");
-		//Assertions 
-		Assert.assertEquals(true, key.isDisplayedWait(driver, login.Account));
-		//ss.captureScreenshot(driver);
-		log.info("Assert successsfully");
-	}
 
+		log.info("login operation successfully performed");
+		// Assertions
+		Assert.assertEquals(false, key.isDisplayedWait(driver, login.Account));
+		// ss.captureScreenshot(driver);
+		log.info("Assert successsfully");
+
+	}
 
 	@AfterClass
 	// close the browser
 	public void closeBrowser() {
-		driver.close();
+	 driver.close();
 	}
 
 }

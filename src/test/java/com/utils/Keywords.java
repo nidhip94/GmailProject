@@ -1,7 +1,6 @@
 package com.utils;
 
 import java.awt.AWTException;
-import java.awt.List;
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
@@ -9,17 +8,17 @@ import java.awt.event.KeyEvent;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 
 public class Keywords {
 
@@ -31,75 +30,122 @@ public class Keywords {
 		driver.get(URL);
 	}
 
-	// ===click
+	// === perform simple click operation==========>
 	public void click(WebDriver driver, By locator) {
 		driver.findElement(locator).click();
 	}
 
-	// sendkeys
+	// ===perform simple sendkeys operation ===>
 	public void sendtext(WebDriver driver, By locator, String text) {
 		driver.findElement(locator).sendKeys(text);
 	}
 
-	//presenceofelement
+	// === check and wait for the element to be present===>
 	public void presenceOfElement(WebDriver driver, By locator) {
 		try {
-		wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+			wait = new WebDriverWait(driver, 10);
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+
+	//===checkandwait for visibility of element
+	public void visibilityOfElement(WebDriver driver , By locator) {
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	//isdisplayed
-	public boolean isDisplayed(WebDriver driver, By locator) {
-		
-		if (driver.findElement(locator).isDisplayed()){
+	//check true/false
+	public boolean visibilityOfElementBool(WebDriver driver , By locator) {
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 			return true;
-		}else {
+		}catch(Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 		
 	}
 	
-	//isdisplayedwithwait
-		public boolean isDisplayedWait(WebDriver driver, By locator) {
-			wait = new WebDriverWait(driver, 15);
-			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-			if (driver.findElement(locator).isDisplayed()){
-				return true;
-			}else {
-				return false;
-			}
-			
+	//check true/false
+	public boolean presenceOfElementBool(WebDriver driver , By locator) {
+		try {
+			wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
 		}
+		
+	}
 	
+	// ==check whether element is displayed or not ===>
+	public boolean isDisplayed(WebDriver driver, By locator) {
+
+		if (driver.findElement(locator).isDisplayed()) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	// wait until element is displayed
+	public boolean isDisplayedWait(WebDriver driver, By locator) {
+		wait = new WebDriverWait(driver, 15);
+		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		if (driver.findElement(locator).isDisplayed()) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
 	
-	
-	
-	
-	
-	
-	
-	
+	//==wait until element is present , after wait is over send text==>
 	public void findPresenceElement(WebDriver driver, By locator, String text) {
 		try {
-		wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-		driver.findElement(locator).sendKeys(text);
-		}catch(Exception e) {
+			wait = new WebDriverWait(driver, 10);
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+			driver.findElement(locator).sendKeys(text);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	//wait until element to be clickable and then click
+	public void elementToBeClickable(WebDriver driver, By locator) {
+		try {
+			wait = new WebDriverWait(driver, 30);
+			wait.until(ExpectedConditions.elementToBeClickable(locator));
+			driver.findElement(locator).click();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	//handle stale element reference exception in findelement and send text function
+	
+	
+	
+	
+	
+	
+	// handle stale element reference exception in findelement and send text
+	// function==>
 	public void findElementsendtextStale(WebDriver driver, By locator, String text) {
 		try {
-			wait = new WebDriverWait(driver,15);
+			wait = new WebDriverWait(driver, 15);
 			wait.until(ExpectedConditions.visibilityOf(driver.findElement(locator)));
 			driver.findElement(locator).sendKeys(text);
 		} catch (StaleElementReferenceException e) {
-			wait = new WebDriverWait(driver,15);
+			wait = new WebDriverWait(driver, 15);
 			wait.until(ExpectedConditions.visibilityOf(driver.findElement(locator)));
 			driver.findElement(locator).sendKeys(text);
 
@@ -107,12 +153,25 @@ public class Keywords {
 	}
 	
 	
-	
-	
-	//find element by visibility then send text
+	// handle stale element reference exception in findelement and send text
+		// function==>
+		public void findElementClickStale(WebDriver driver, By locator) {
+			try {
+				wait = new WebDriverWait(driver, 15);
+				wait.until(ExpectedConditions.visibilityOf(driver.findElement(locator)));
+				driver.findElement(locator).click();
+			} catch (StaleElementReferenceException e) {
+				wait = new WebDriverWait(driver, 15);
+				wait.until(ExpectedConditions.visibilityOf(driver.findElement(locator)));
+				driver.findElement(locator).click();
+
+			}
+		}
+
+	// ====find element by visibility then send text====>
 	public void findElementsendtext(WebDriver driver, By locator, String text) {
 		try {
-			wait = new WebDriverWait(driver,15);
+			wait = new WebDriverWait(driver, 15);
 			wait.until(ExpectedConditions.visibilityOf(driver.findElement(locator)));
 			driver.findElement(locator).sendKeys(text);
 		} catch (Exception e) {
@@ -120,14 +179,14 @@ public class Keywords {
 		}
 	}
 
-	// ==Find element and click=====>
+	// ==Find element until it is visible and then  click=====>
 	public void findElementClick(WebDriver driver, By locator) {
 		wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(locator)));
 		driver.findElement(locator).click();
 	}
 
-	// ==Find element and click=====>
+	// ==Find element by scrolling  and click=====>
 	public void findElementScrollAndClick(WebDriver driver, By locator) {
 		wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(locator)));
@@ -135,6 +194,15 @@ public class Keywords {
 		driver.findElement(locator).click();
 	}
 
+	public WebElement webelement(WebDriver driver ,By locator) {
+		
+		return driver.findElement(locator);
+	
+	}
+	
+	
+	
+	//find element by js and then click=====>
 	public void clickByjs(WebDriver driver, By locator) {
 		WebElement ele = driver.findElement(locator);
 		JavascriptExecutor exe = (JavascriptExecutor) driver;
@@ -153,6 +221,18 @@ public class Keywords {
 	public void switchToDefault(WebDriver driver) {
 		driver.switchTo().defaultContent();
 	}
+	
+	//switch to frame by WebElement
+	public void switchFrameWebElement(WebDriver driver , By locator) {
+		driver.switchTo().frame(driver.findElement(locator));
+	}
+	
+	
+	
+	
+	
+	
+	
 	// ================================================================>
 
 	// ===================Scroll
